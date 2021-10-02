@@ -1,19 +1,5 @@
 #Security Notes
 
-
-Ports:
-    20/21 FTP
-    22 SSH
-    23 Telnet
-    25 SMTP
-    80 HTTP
-    88 Kerberos
-    161 SNMP
-    389 LDAP
-    443 SSL/TLS (HTTPS)
-    445 SMB Server Message Block
-    3389 RDP Remote Desktop Protocol
-
 Example commands:
     curl -s http:/SERVER_IP:PORT/ -X POST -d "param1=sample"
     nmap -sC -sV -p21 10.129.42.253
@@ -30,24 +16,14 @@ Example commands:
         if anonymous access allowed: enter 'anonymous' as user
         get <file.txt.> 
             gets the file while in ftp
-    smbclient -N -L \\\\10.129.42.253
-            gets the file while in smbclient
-    
-Run hackthebox
-    sudo openvpn file.ovpn 
-    
 
-
-
-decode base64
-    echo ENCODED_B64 | base64 -d 
-encdoe base64
-    echo hackthebox | base64
-
-decode hex
-    echo ENCODED_HEX | xxd -p -r
-encode hex
-    echo ENCODED_HEX | xxd -p
+dirsearch -u <URL>
+    searches for web directories
+searchsploit <keywords> <more keywords>
+telnet <ip>
+xfreerdp /v:10.129.227.82 /u:Administrator
+smbclient -N -L \\\\10.129.42.253
+    gets the file while in smbclient  
 
 Tools:
     searchsploit (find public vulnerabilities/exploits)
@@ -79,7 +55,6 @@ Tools:
         shell (opens shell in victim computer)
 
 
-
 & run in background operator
 && run multiple commands one after the next if successful
 > output operator (overwrite)
@@ -100,9 +75,6 @@ Windows:
     regedt32.exe
 
 
-dirsearch -u <URL>
-searchsploit <keywords> <more keywords>
-telnet <ip>
-xfreerdp /v:10.129.227.82 /u:Administrator
+
 
 
