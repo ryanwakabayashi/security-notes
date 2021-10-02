@@ -1,0 +1,23 @@
+Ports:
+    20/21 FTP
+    22 SSH
+    23 Telnet
+    25 SMTP
+    80 HTTP
+    88 Kerberos
+    161 SNMP
+    389 LDAP
+    443 SSL/TLS (HTTPS)
+    445 SMB Server Message Block
+    3389 RDP Remote Desktop Protocol
+
+
+decode base64
+    echo ENCODED_B64 | base64 -d
+encode base64
+    echo hackthebox | base64
+
+decode hex
+    echo ENCODED_HEX | xxd -p -r
+encode hex
+    echo ENCODED_HEX | xxd -p

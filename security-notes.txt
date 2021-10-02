@@ -1,0 +1,108 @@
+#Security Notes
+
+
+Ports:
+    20/21 FTP
+    22 SSH
+    23 Telnet
+    25 SMTP
+    80 HTTP
+    88 Kerberos
+    161 SNMP
+    389 LDAP
+    443 SSL/TLS (HTTPS)
+    445 SMB Server Message Block
+    3389 RDP Remote Desktop Protocol
+
+Example commands:
+    curl -s http:/SERVER_IP:PORT/ -X POST -d "param1=sample"
+    nmap -sC -sV -p21 10.129.42.253
+        -A (dont care about detection)
+        -O operating system
+        -v verbose
+        -p- all ports
+        -T5 (0 to 5 timing, higher is faster)
+        -sS ("half-open" "stealth" scan doesnt complete 3way handshake) this is default scans if sudo permission used
+        script location "/usr/shar/nmap/scripts"
+        -Pn (dont ping, just scan)
+        -f or --mtu <number> (fragments packet to bypass firewall)
+    ftp -p 10.129.42.253
+        if anonymous access allowed: enter 'anonymous' as user
+        get <file.txt.> 
+            gets the file while in ftp
+    smbclient -N -L \\\\10.129.42.253
+            gets the file while in smbclient
+    
+Run hackthebox
+    sudo openvpn file.ovpn 
+    
+
+
+
+decode base64
+    echo ENCODED_B64 | base64 -d 
+encdoe base64
+    echo hackthebox | base64
+
+decode hex
+    echo ENCODED_HEX | xxd -p -r
+encode hex
+    echo ENCODED_HEX | xxd -p
+
+Tools:
+    searchsploit (find public vulnerabilities/exploits)
+    msfconsole
+        search exploit eternalblue
+        use <exploit name>
+        show options
+        set RHOSTS 10.10.10.40
+            RHOSTS is target
+        check
+        exploit
+        spool 
+            console output to file
+        save
+            saves values
+        db_nmap -sV 10.10.216.211 (this command saves stuff to database to look at later)
+            hosts
+            vulns 
+            services
+        ip addr (shows ip address, likely tun0 on these)
+        run -j (runs in background)
+        jobs (shows all running jobs)
+        sessions (shows all sessions)
+            -i <session number> (interact with session)
+        getuid (get information about user running process)
+        sysinfo
+        getprivs (shows privileges)
+        upload (to upload files to victim computer)
+        shell (opens shell in victim computer)
+
+
+
+& run in background operator
+&& run multiple commands one after the next if successful
+> output operator (overwrite)
+>> append operator
+
+Windows:
+    msconfig.exe
+    msinfo32.exe 
+    resmon.exe
+    compmgmt.msc
+    hostname (cmd command) 
+        computer name
+    whoami (cmd)
+        name of logged in user
+    netstat
+    net
+        manage network resources    
+    regedt32.exe
+
+
+dirsearch -u <URL>
+searchsploit <keywords> <more keywords>
+telnet <ip>
+xfreerdp /v:10.129.227.82 /u:Administrator
+
+
