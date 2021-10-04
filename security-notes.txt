@@ -24,6 +24,8 @@ telnet <ip>
 xfreerdp /v:10.129.227.82 /u:Administrator
 smbclient -N -L \\\\10.129.42.253
     gets the file while in smbclient  
+find / -user root -perm -4000 -exec ls -ldb {} \;
+    find SUID (set owner userID upon execution) privileges
 
 Tools:
     searchsploit (find public vulnerabilities/exploits)
@@ -74,7 +76,23 @@ Windows:
         manage network resources    
     regedt32.exe
 
+SQL injection:
+    "' 1=1--"
+        -- is SQL comment
+
+list
+    burp suite > <highlight the field> > right click > extensions > turbo intruder > send to turbo intruder
+    common weak/default passwords:
+    /usr/share/seclists/Passwords/Common-Credentials/best1050.txt
 
 
+Anonymous scan:
+    sudo service tor start
+    proxychains nmap <ip>
 
 
+    look into linpeas
+    also look into hosting tool online so i can wget it from a shell
+
+https://gtfobins.github.io/
+    looks for privilege escalation
