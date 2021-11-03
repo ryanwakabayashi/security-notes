@@ -4,9 +4,9 @@ Ports:
     23 Telnet
     25 SMTP
     80 HTTP
-    88 Kerberos
+    88 Kerberos (default authentication service for active directory: uses tickets)
     161 SNMP
-    389 LDAP
+    389 LDAP (lightweight directory access protocol)
     443 SSL/TLS (HTTPS)
     445 SMB Server Message Block
     3389 RDP Remote Desktop Protocol
